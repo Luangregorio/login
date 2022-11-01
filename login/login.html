@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.548);
+        }
+
+        form{
+            width: 500px;
+            height: 260px;
+            margin: 200px auto;
+            text-align: center;
+            background-color: rgb(235, 234, 245);
+            border-radius: 10px;
+            
+        }
+
+        input{
+            
+            display: block;
+            margin: 5px auto;
+            width: 200px;
+            height: 30px;
+        }
+
+      h3{
+        color: rgb(15, 15, 15);
+        font-size: 2em;
+      }
+
+    </style>
+</head>
+<body>
+
+    <form>
+        <h3>Login</h3>
+        <h3 id="valor" name="valor"></h3>
+        <input type="password" name="senha" id="senha"/><br><br>
+        <input type="button" name="validar" id="validar" value="Validar"/>
+    </form>
+
+    <script>
+        function validarSenha() {			
+			var senha = document.getElementById("senha").value;
+			document.getElementById("valor").innerText = senha;
+			
+			if (senha.length >= 16 && senha.length <= 20) {
+				alert('Comprimento de senha Ok');
+			} else {
+				alert('Comprimento da senha inválido: ' + senha.length);
+			}
+						
+			if (senha.match(/[0-9]/)) {
+				alert('Possui Números');
+			} else {
+				alert('Não possui números');
+			}
+			
+			if (senha.match(/[A-Z]/)) {
+				alert('Possui Letras Maiusculas');
+			} else {
+				alert('Não possui Letras Maiusculas');
+			}
+			
+			if (senha.match(/[a-z]/)) {
+				alert('Possui Letras Minusculas');
+			} else {
+				alert('Não possui Letras Minusculas');
+			}
+			
+			if (senha.match(/(@|#|\$|\%)/)) {
+				alert('Possui Caracteres Especiais');
+			} else {
+				alert('Não Possui Caracteres Especiais');
+			}
+			
+		};
+	
+		document.getElementById("validar").addEventListener("click", function() {
+		  validarSenha();
+		});
+    </script>
+    
+</body>
+</html>
